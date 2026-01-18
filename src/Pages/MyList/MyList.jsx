@@ -8,7 +8,7 @@ const MyList = () => {
   const { user } = useContext(AuthContext);
   const [list, setList] = useState([]);
   useEffect(() => {
-    fetch(`https://tourist-iq-server.vercel.app/MyList/${user?.email}`)
+    fetch(`https://tourist-iq-server-jet.vercel.app/MyList/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setList(data);
@@ -28,7 +28,7 @@ const MyList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://tourist-iq-server.vercel.app/tourist/${_id}`, {
+        fetch(`https://tourist-iq-server-jet.vercel.app/tourist/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -41,7 +41,7 @@ const MyList = () => {
                 icon: "success",
               });
               const remaining = list.filter(
-                (remainingList) => remainingList._id !== _id
+                (remainingList) => remainingList._id !== _id,
               );
               setList(remaining);
             }

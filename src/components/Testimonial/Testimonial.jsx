@@ -25,12 +25,12 @@ const Testimonial = () => {
           </p>
           <div className="flex justify-center space-x-3">
             <img
-              src="https://i.postimg.cc/W17RLPmr/myself2.png"
+              src="https://i.ibb.co.com/JDM5ZhD/IMG-20240426-031304-893.jpg"
               alt=""
               className="w-20 h-20 bg-center bg-cover rounded-md  dark:bg-gray-300"
             />
             <div>
-              <p className="leading-tight font-bold text-2xl">Md. Nahidul Islam</p>
+              <p className="leading-tight font-bold text-2xl">Ashim Kumar Sarker</p>
               <p className="text-sm leading-tight dark:text-gray-700">
                 Founder, TouristIQ
               </p>

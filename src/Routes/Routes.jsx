@@ -12,66 +12,71 @@ import MyList from "../Pages/MyList/MyList";
 import Update from "../Pages/Update/Update";
 import ViewCountry from "../Pages/ViewCountry/ViewCountry";
 
-
-
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Root></Root>,
-      errorElement: <Error></Error>,
-      children: [
-        {
-            path: '/',
-            element: <Home></Home>,
-            loader: () => fetch('https://tourist-iq-server.vercel.app/tourist')
-        },
-        {
-            path: '/register',
-            element: <Register></Register>
-        },
-        {
-            path: '/login',
-            element: <Login></Login>
-        },
-        {
-          path: '/addTouristSpot',
-          element: <PrivateRoute><AddTouristSpot></AddTouristSpot></PrivateRoute>
-        },
-        {
-          path: '/allTouristSpot',
-          element: <AllTouristSpot></AllTouristSpot>,
-          loader: () => fetch('https://tourist-iq-server.vercel.app/tourist')
-        },
-        {
-          path: "/tourist/:_id",
-          element: (
-            <PrivateRoute>
-              <ViewDetails></ViewDetails>
-            </PrivateRoute>
-          ),
-          loader: () => fetch("https://tourist-iq-server.vercel.app/tourist"),
-        },
+  {
+    path: "/",
+    element: <Root></Root>,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+        loader: () => fetch("https://tourist-iq-server-jet.vercel.app/tourist"),
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/addTouristSpot",
+        element: (
+          <PrivateRoute>
+            <AddTouristSpot></AddTouristSpot>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/allTouristSpot",
+        element: <AllTouristSpot></AllTouristSpot>,
+        loader: () => fetch("https://tourist-iq-server-jet.vercel.app/tourist"),
+      },
+      {
+        path: "/tourist/:_id",
+        element: (
+          <PrivateRoute>
+            <ViewDetails></ViewDetails>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("https://tourist-iq-server-jet.vercel.app/tourist"),
+      },
 
-        {
-          path: 'myList',
-          element:<PrivateRoute><MyList></MyList></PrivateRoute>
-        },
-        {
-          path: '/Update/:_id',
-          element: <PrivateRoute><Update></Update></PrivateRoute>,
-          loader: () => fetch("https://tourist-iq-server.vercel.app/tourist"),
-        },
-        {
-          path: '/countries/:name',
-          element:
-            <ViewCountry></ViewCountry>,
-           
-          
-        },
-        
-      ]
-    },
-    
-  ]);
+      {
+        path: "myList",
+        element: (
+          <PrivateRoute>
+            <MyList></MyList>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/Update/:_id",
+        element: (
+          <PrivateRoute>
+            <Update></Update>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("https://tourist-iq-server-jet.vercel.app/tourist"),
+      },
+      {
+        path: "/countries/:name",
+        element: <ViewCountry></ViewCountry>,
+      },
+    ],
+  },
+]);
 
 export default router;

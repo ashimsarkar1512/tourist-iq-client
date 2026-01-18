@@ -3,12 +3,10 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 
-
 const AddTouristSpot = () => {
-  const {user} = useContext(AuthContext)
-  console.log(user)
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const handleAddTourist = (event) => {
-   
     event.preventDefault();
     const form = event.target;
 
@@ -20,7 +18,7 @@ const AddTouristSpot = () => {
     const season = form.season.value;
     const time = form.time.value;
     const number = form.number.value;
-    const email = form.email.value; 
+    const email = form.email.value;
     const name = form.name.value;
     const photo = form.photo.value;
 
@@ -39,7 +37,7 @@ const AddTouristSpot = () => {
     };
     console.log(newTourist);
     //send data to the server\
-    fetch("https://tourist-iq-server.vercel.app/tourist", {
+    fetch("https://tourist-iq-server-jet.vercel.app/tourist", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -48,7 +46,6 @@ const AddTouristSpot = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        
         console.log(data);
         if (data.insertedId) {
           Swal.fire({
@@ -61,12 +58,13 @@ const AddTouristSpot = () => {
       });
   };
   return (
-    <div data-aos="zoom-out-down"
-
-    data-aos-delay="50"
-    data-aos-duration="1000"
-    
-    data-aos-anchor-placement="top-center" className="flex justify-center ">
+    <div
+      data-aos="zoom-out-down"
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      data-aos-anchor-placement="top-center"
+      className="flex justify-center "
+    >
       <Helmet>
         <title>Add Tourist spot</title>
       </Helmet>
@@ -74,7 +72,10 @@ const AddTouristSpot = () => {
         onSubmit={handleAddTourist}
         className=" border bg-[#F5F7FA] hover:border-black p-5 backdrop-blur-sm rounded-3xl"
       >
-        <h2 className="text-black text-3xl font-lora text-center mb-10"> Add Tourist spot </h2>
+        <h2 className="text-black text-3xl font-lora text-center mb-10">
+          {" "}
+          Add Tourist spot{" "}
+        </h2>
         {/* Form name and quantity row */}
         <div className="lg:flex gap-x-5">
           <div className="form-control">
@@ -124,7 +125,6 @@ const AddTouristSpot = () => {
               className="input input-bordered "
               placeholder="Enter location"
               name="location"
-              
             />
           </div>
 
@@ -217,15 +217,24 @@ const AddTouristSpot = () => {
                 User Email{" "}
               </span>
             </label>
-            {
-              user?.email? <input className="input input-bordered " readOnly type="text" name="email" placeholder="email" id="" defaultValue={user?.email} /> : <input
-              className="input input-bordered "
-              placeholder="Enter your mail"
-              name="email"
-              required
-              
-            />
-            }
+            {user?.email ? (
+              <input
+                className="input input-bordered "
+                readOnly
+                type="text"
+                name="email"
+                placeholder="email"
+                id=""
+                defaultValue={user?.email}
+              />
+            ) : (
+              <input
+                className="input input-bordered "
+                placeholder="Enter your mail"
+                name="email"
+                required
+              />
+            )}
           </div>
 
           <div className="form-control ">

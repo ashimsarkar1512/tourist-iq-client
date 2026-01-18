@@ -55,7 +55,7 @@ const Update = () => {
       name: name,
       photo: updatedPhoto,
     };
-    fetch(`https://tourist-iq-server.vercel.app/tourist/${_id}`, {
+    fetch(`https://tourist-iq-server-jet.vercel.app/tourist/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
