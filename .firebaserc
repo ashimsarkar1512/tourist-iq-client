@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "tourist-iq"
-  }
+    "default": "tourist-iq-c5780"
+  },
+  "targets": {},
+  "etags": {}
 }
