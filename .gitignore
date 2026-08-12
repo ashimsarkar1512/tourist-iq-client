@@ -9,7 +9,8 @@ lerna-debug.log*
 
 # Dependencies
 node_modules
-
+.env 
+.env.local
 # Build outputs
 dist
 dist-ssr
@@ -30,9 +31,6 @@ dist-ssr
 
 # Vercel
 .vercel
-
-# Debug scripts
-config.bat
+branch_structure.json
 temp_auto_push.bat
 temp_interactive_push.bat
-branch_structure.json
